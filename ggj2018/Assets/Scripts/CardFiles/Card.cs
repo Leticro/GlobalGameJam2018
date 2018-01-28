@@ -39,26 +39,30 @@ public class Card : MonoBehaviour{
             {
                 ele2 = element2.ToString();
             }
-            else ele2 = "/" + element2.ToString();
+            else ele2 = "/ " + element2.ToString();
         }
         if (element != CardElement.none)
         {
-            emo = emotion.ToString();
+            if (ele1.Equals("") && ele2.Equals(""))
+            {
+                emo = element2.ToString();
+            }
+            else emo = ", " + element2.ToString();
         }
-        cardText.GetComponent<Text>().text = ele1 + ele2 + ", " + emotion;
+        cardText.GetComponent<Text>().text = ele1 + ele2  + emotion;
     }
 
-    private void OnMouseOver(PointerEventData eventData)
-    {
-        print("test");
-        print(cardText);
-        cardText.SetActive(true);
-    }
+    //private void OnMouseOver(PointerEventData eventData)
+    //{
+    //    print("test");
+    //    print(cardText);
+    //    cardText.SetActive(true);
+    //}
 
-    private void OnMouseExit()
-    {
-        cardText.SetActive(false);
-    }
+    //private void OnMouseExit()
+    //{
+    //    cardText.SetActive(false);
+    //}
 
     void onClick()
     {

@@ -15,7 +15,7 @@ public class CardManager : MonoBehaviour {
     private List<Card> inGameHand; // hand in the scene
 
     private Canvas canvas;
-    private ChoiceTree choiceTree;
+    public ChoiceTree choiceTree;
 
     // card start coordinates
     private int cardX = -160;
@@ -69,7 +69,6 @@ public class CardManager : MonoBehaviour {
     // user has chosen a card
     public void continueWithChoice(Card card)
     {
-        choiceTree = FindObjectOfType<ChoiceTree>();
         CardEmotion resultEmotion = choiceTree.calculateViolence(card);
         CardElement resultElement = choiceTree.calculateElement(card);
 
@@ -79,6 +78,13 @@ public class CardManager : MonoBehaviour {
         foreach (Card c in inGameHand)
         {
             Destroy(c.gameObject);
+        }
+
+        // add hand back to deck
+        while(hand.Count > 0)
+        {
+            deck.Cards.Add(hand[hand.Count-1]);
+            hand.RemoveAt(hand.Count-1);
         }
     }
 
