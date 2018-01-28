@@ -10,13 +10,34 @@ public class ChoiceTree : MonoBehaviour {
     public CardElement elementSuccess2;
     public CardEmotion emotionSuccess2;
 
-    public float percentIncrease = .25f;
+    public float percentIncrease = .3f;
     private float violentPercent;
     private float elementPercent;
 
     void Start()
     {
 
+    }
+
+    public void printGoalCompare(CardEmotion emotion, CardElement element)
+    {
+        print(emotionSuccess1.ToString() + ", " + elementSuccess1.ToString());
+        print(emotionSuccess2.ToString() + ", " + elementSuccess2.ToString());
+        print(emotion.ToString() + ", " + element.ToString());
+    }
+
+    // 0 = fail, 1 = first success, 2 = second success
+    public int compareResult(CardEmotion emotion, CardElement element)
+    {
+        if (emotion == emotionSuccess1 && element == elementSuccess1)
+        {
+            return 1;
+        }
+        else if (emotion == emotionSuccess1 && element == elementSuccess1)
+        {
+            return 2;
+        }
+        else return 0;
     }
 
     public CardEmotion calculateViolence(Card card)

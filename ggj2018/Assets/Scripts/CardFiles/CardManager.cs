@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardManager : MonoBehaviour {
 
@@ -14,21 +15,29 @@ public class CardManager : MonoBehaviour {
     private List<Card> inGameHand; // hand in the scene
 
     private Canvas canvas;
+    private ChoiceTree choiceTree;
 
+    // card start coordinates
     private int cardX = -160;
-    private int cardY = 80;
+    private int cardY = 100;
+    //card spacing
+    private int cardXspace = 80;
+    private int cardYspace = 120;
+
+    // Instructions
+    public Text instructions;
 
     // Use this for initialization
     void Start() {
 
         deck = Instantiate(deckPrefab);
 
-        canvas = FindObjectOfType<Canvas>();
+        canvas = this.transform.GetChild(0).GetComponent<Canvas>();
         print("test");
         print(canvas);
 
-        //DontDestroyOnLoad(deck);
-        //DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(deck);
+        DontDestroyOnLoad(this.gameObject);
 
         drawHand();
     }
@@ -49,28 +58,40 @@ public class CardManager : MonoBehaviour {
             if (hand.Count == 5)
             {
                 x = cardX;
-                y = 0;
+                y -= cardYspace;
             }
             inGameCard.GetComponent<RectTransform>().anchoredPosition = new Vector2(x, y);
-            x += 60;
-            print(inGameCard.GetComponent<RectTransform>().anchoredPosition);
+            x += cardXspace;
         }
-
-        //for(int i = 0; i < hand.Count; i++)
-        //{
-        //    inGameHand Instantiate
-        //}
         
     }
 
     // user has chosen a card
     public void continueWithChoice(Card card)
     {
+        print("continue");
+        choiceTree = FindObjectOfType<ChoiceTree>();
+        CardEmotion resultEmotion = choiceTree.calculateViolence(card);
+        CardElement resultElement = choiceTree.calculateElement(card);
 
-
+        // 0 = fail, 1 = success1, 2 = success2
+        int result = choiceTree.compareResult(resultEmotion, resultElement);
+        choiceTree.printGoalCompare(resultEmotion, resultElement);
+        print(result);
+        // remove card display
         foreach (Card c in inGameHand)
         {
-            Destroy(c);
+            Destroy(c.gameObject);
+        }
+
+        switch(result)
+        {
+            case 1: // load next scene
+                break;
+            case 2: // load load next scene
+                break;
+            default: // load scene before
+                break;
         }
     }
 
