@@ -26,11 +26,11 @@ public class CardManager : MonoBehaviour {
     public ChoiceTree choiceTree;
 
     // card start coordinates
-    private int cardX = -160;
-    private int cardY = 100;
+    private int cardX = -383;
+    private int cardY = 77;
     //card spacing
-    private int cardXspace = 80;
-    private int cardYspace = 120;
+    private int cardXspace = 152;
+    private int cardYspace = 222;
 
     // Instructions
     private string instructions;
