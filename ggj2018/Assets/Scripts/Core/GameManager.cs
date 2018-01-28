@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager _instance = null;
 
+    public ScrollingDialogue selectionButton;
 	public ScrollingDialogue outcomeButton;
     public CardManager cardManager;
     private SceneController sceneController;
@@ -72,8 +73,8 @@ public class GameManager : MonoBehaviour
 
     private void OnDialogueComplete()
     {
-       // dialogueController.gameObject.SetActive(false);
-        //sceneController.gameObject.SetActive(false);
+        dialogueController.gameObject.SetActive(false);
+        sceneController.gameObject.SetActive(false);
 		StartNextPhase();
         //DisplayNextScene
     }
@@ -87,7 +88,7 @@ public class GameManager : MonoBehaviour
         }
         else if(sceneController.sectionName=="intro")
         {
-            SceneManager.LoadScene("sc1_hub_0");
+            SceneManager.LoadScene("sc1_hub_1");
         }
         else
         {
@@ -105,8 +106,18 @@ public class GameManager : MonoBehaviour
         Debug.Log(turnText + "should be displayed!");
     }
 
-    public void DisplayOutcomeText(string outcomeText)
+    public void DisplaySelectionText(string selectText)
     {
+        selectionButton.gameObject.SetActive(true);
+        Debug.Log(selectText + "should be displayed");
+        selectionButton.InitDialogue(selectText);
+        selectionButton.gameObject.SetActive(true);
+    }
+
+    public void DisplayOutcomeText()
+    {
+        string outcomeText = sceneData.GetOutcomeText(cardManager.GetRouteChoiceId());
+        selectionButton.gameObject.SetActive(false);
         Debug.Log(outcomeText + "should be displayed");
         outcomeButton.InitDialogue(outcomeText);
         outcomeButton.gameObject.SetActive(true);
@@ -122,7 +133,9 @@ public class GameManager : MonoBehaviour
 
 	public void ExecOutcome()
 	{
-        cardManager.loadNextScene();
+        Debug.Log("trying to load");
+        //cardManager.loadNextScene();
+        SceneManager.LoadScene(cardManager.getSceneName());
 	}
 	
 

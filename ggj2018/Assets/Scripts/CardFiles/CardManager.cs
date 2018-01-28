@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class CardManager : MonoBehaviour {
 
-    public string routeAV;
-    public string routeAN;
-    public string routeCV;
-    public string routeCN;
-    public string routeWV;
-    public string routeWN;
+
+    public string routeAV = "sc1_hub2";
+    public string routeAN = "sc1_hub2";
+    public string routeCV = "sc1_hub2";
+    public string routeCN = "sc1_hub2";
+    public string routeWV = "sc1_hub2";
+    public string routeWN = "sc1_hub2";
 
     public int handSize = 8;
     public CardList cardList;
@@ -74,7 +75,7 @@ public class CardManager : MonoBehaviour {
         }
       
         instructions = "What is your command?";
-        GameManager._instance.DisplayTurnText(instructions);
+       // GameManager._instance.DisplayTurnText(instructions);
     }
 
     // user has chosen a card
@@ -86,7 +87,7 @@ public class CardManager : MonoBehaviour {
         instructions = "You chose a " + card.cardDescriptionText.GetComponent<Text>().text + " approach. The zombies decided to take a "
             + resultEmotion.ToString() + ", " + resultElement + " approach!";
 
-        GameManager._instance.DisplayOutcomeText(instructions);
+        GameManager._instance.DisplaySelectionText(instructions);
         routeChoice = choiceTree.findRoute(resultEmotion, resultElement);
 
         // remove card display
@@ -103,6 +104,20 @@ public class CardManager : MonoBehaviour {
         //}
     }
 
+    public string getSceneName()
+    {
+        switch (routeChoice)
+        {
+            case RouteChoice.AirViolent: return routeAN; break;
+            case RouteChoice.AirNon: return routeAV; break;
+            case RouteChoice.ContactViolent: return routeCV; break;
+            case RouteChoice.ContactNon: return routeCN; break;
+            case RouteChoice.WaterViolent: return routeWV; break;
+            case RouteChoice.WaterNon: return routeWN; break;
+        }
+        return "main";
+    }
+
     public void loadNextScene()
     {
         switch(routeChoice)
@@ -114,6 +129,21 @@ public class CardManager : MonoBehaviour {
             case RouteChoice.WaterViolent: SceneManager.LoadScene(routeWV); break;
             case RouteChoice.WaterNon: SceneManager.LoadScene(routeWN); break;
         }
+    }
+
+    public int GetRouteChoiceId()
+    {
+        switch (routeChoice)
+        {
+            case RouteChoice.AirViolent: return 0;
+            case RouteChoice.AirNon: return 1;
+            case RouteChoice.ContactViolent: return 2;
+            case RouteChoice.ContactNon: return 3;
+            case RouteChoice.WaterViolent: return 4;
+            case RouteChoice.WaterNon: return 5;
+        }
+       
+        return 0;
     }
 
 
