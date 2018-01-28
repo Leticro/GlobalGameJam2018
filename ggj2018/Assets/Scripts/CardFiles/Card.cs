@@ -45,11 +45,11 @@ public class Card : MonoBehaviour{
         {
             if (ele1.Equals("") && ele2.Equals(""))
             {
-                emo = element2.ToString();
+                emo = emotion.ToString();
             }
-            else emo = ", " + element2.ToString();
+            else emo = ", " + emotion.ToString();
         }
-        cardText.GetComponent<Text>().text = ele1 + ele2  + emotion;
+        cardText.GetComponent<Text>().text = ele1 + ele2  + emo;
     }
 
     //private void OnMouseOver(PointerEventData eventData)

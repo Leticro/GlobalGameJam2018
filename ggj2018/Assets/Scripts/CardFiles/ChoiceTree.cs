@@ -10,7 +10,7 @@ public class ChoiceTree : MonoBehaviour {
     //public CardElement elementSuccess2;
     //public CardEmotion emotionSuccess2;
 
-    public float percentIncrease = .5f;
+    public float percentIncrease = .3f;
     private float violentPercent;
     private float elementPercent;
 
@@ -118,46 +118,41 @@ public class ChoiceTree : MonoBehaviour {
         if (e1 == CardElement.fluid)
         {
             fluid *= 1 + percentIncrease;
+            water *= 1 - (percentIncrease / 2f);
+            air *= 1 - (percentIncrease / 2f);
         }
         else if (e1 == CardElement.water)
         {
             water *= 1 + percentIncrease;
+            fluid *= 1 - (percentIncrease / 2f);
+            air *= 1 - (percentIncrease / 2f);
         }
         else if (e1 == CardElement.airborne)
         {
             air *= 1 + percentIncrease;
+            water *= 1 - (percentIncrease / 2f);
+            fluid *= 1 - (percentIncrease / 2f);
         }
 
         if (e2 == CardElement.fluid)
         {
             fluid *= 1 + percentIncrease;
+            water *= 1 - (percentIncrease / 2f);
+            air *= 1 - (percentIncrease / 2f);
         }
         else if (e2 == CardElement.water)
         {
             water *= 1 + percentIncrease;
+            fluid *= 1 - (percentIncrease / 2f);
+            air *= 1 - (percentIncrease / 2f);
         }
         else if (e2 == CardElement.airborne)
         {
             air *= 1 + percentIncrease;
+            water *= 1 - (percentIncrease / 2f);
+            fluid *= 1 - (percentIncrease / 2f);
         }
 
-        return weighElements(fluid, water, air);
-    }
-
-    CardElement weighElements(float fluid, float water, float air)
-    {
-        if (fluid < water && fluid < air)
-        {
-            fluid = 1 - (water + air);
-        }
-        if (water < fluid && water < air)
-        {
-            water = 1 - (fluid + air);
-        }
-        if (air < water && air < fluid)
-        {
-            air = 1 - (water + fluid);
-        }
         return finalizeElement(fluid, water, air);
     }
 

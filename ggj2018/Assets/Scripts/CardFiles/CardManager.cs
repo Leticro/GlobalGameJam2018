@@ -10,7 +10,7 @@ public class CardManager : MonoBehaviour {
 
     public Deck deckPrefab;
 
-    private Deck deck;
+    //private Deck deck;
     private List<Card> hand;    // virtual hand from deck
     private List<Card> inGameHand; // hand in the scene
 
@@ -32,14 +32,14 @@ public class CardManager : MonoBehaviour {
     // Use this for initialization
     void Start() {
 
-        deck = Instantiate(deckPrefab);
+        //deck = Instantiate(deckPrefab);
 
         canvas = this.transform.GetChild(0).GetComponent<Canvas>();
 
-        DontDestroyOnLoad(deck);
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(deck);
+        //DontDestroyOnLoad(this.gameObject);
 
-        drawHand();
+        //drawHand();
     }
 
     public void drawHand()
@@ -49,9 +49,10 @@ public class CardManager : MonoBehaviour {
 
         int x = cardX;
         int y = cardY;
-        while (hand.Count < handSize && deck.Cards.Count > 0)
+        while (hand.Count < handSize /* && deck.Cards.Count > 0 */)
         {
-            Card card = deck.drawFromDeck();
+            //Card card = deck.drawFromDeck();
+            Card card = cardList.getRandomCard();
             hand.Add(card);
             Card inGameCard = Instantiate(card, canvas.transform);
             inGameHand.Add(inGameCard);
@@ -81,11 +82,11 @@ public class CardManager : MonoBehaviour {
         }
 
         // add hand back to deck
-        while(hand.Count > 0)
-        {
-            deck.Cards.Add(hand[hand.Count-1]);
-            hand.RemoveAt(hand.Count-1);
-        }
+        //while(hand.Count > 0)
+        //{
+        //    deck.Cards.Add(hand[hand.Count-1]);
+        //    hand.RemoveAt(hand.Count-1);
+        //}
     }
 
 
