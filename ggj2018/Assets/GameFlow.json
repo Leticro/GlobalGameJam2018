@@ -1,0 +1,24 @@
+{
+    "text":
+    [
+            "She would not suffer this Injustice!",
+            "She would lead her undead horde in this world of madness bereft of justice or sanity!",
+            "She had robbed the graveyard of three of its strongest corpses.",
+            "Men of courage and honor in life: they would serve her as abominable knights in undeath...",
+            "While she couldn't speak to them with words, her thoughts acted as orders to them.",
+            "She would take over the kingdom and restore order.",
+            "She was a little necromancer and none would stand in her way.",
+            "Though her soul was already damned, she would overcome this atrocity.",
+            "Victory was almost assured.",
+            "She would be the princess of death!"
+    ],
+    "cutscene":
+    {
+            "image_0":0
+    },
+    "next":
+    {
+        "action":"Load",
+        "sceneName":"Hub_0"
+    }
+}

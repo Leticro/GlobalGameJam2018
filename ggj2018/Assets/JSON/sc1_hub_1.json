@@ -1,0 +1,13 @@
+{
+"text":["Some Scouts have sensed a disturbance in the graveyard. You must eliminate them! They wear light armor and will not be easy to bring down without speed. A slight breeze passes through, but the water is still... What shall you do?"],
+"cutscene":[0],
+"outcome_text":[
+    "A zombie runs forward, bursting into a spore cloud. The light breeze swathes the intruders in the virulent fumes! Their bodies convulse, mutating into two more of your undead minions. Unfortunately, it seems one has managed to escape the cloud and is running! Catch him before he warns the village!!!",
+    "The zombies closest to you crumple and explode, hoping their spores will carry in the wind. However, given the significant distance from you and them, the scouts easily run back to the Village to report!",
+    "Your zombies charge across the broken stones attempting to bite the poor fools who dare get in your way. The scouts nimbly run away, and the only zombie that catches them has his teeth slide harmlessly across their leather armor, after which it is easily slain!",
+    "Your zombies fall to the ground pretending to be dead. The scouts approach so as to rebury their consecrated dead. How easily these fools have been bent to your cause, for the virus spreads by contact of the blood on the corpses!",
+    "Your zombies vomit from long range but sadly the humans are armored, AND they're definitely too far away. Rather than slay your zombies, they simply flee to alert their families. Reginald leaves in disappointment.",
+    "Your zombies attempt to infect the water supply. Unfortunately, in the graveyard that requires them digging a ditch for ground water and then laying in it. In the end all they managed to do is rebury themselves!"
+],
+"outcome_scene":["sc1_hub_2", "sc1_hub_1","sc1_hub_1","sc1_hub_3","sc1_hub_1","sc1_hub_1"]
+}

@@ -1,0 +1,16 @@
+{
+"text":[
+    "My first specimens are complete! Now, for my first command… Reginald, eat that cat!",
+    "Ah… if only I was able to work on the communication spell a bit more.",
+    "Any time I use a command, I need to make sure I'm thinking of the correct Vector and Emotion. If I don't, the zombies won't obey my orders.",
+    "Given how bad these guys have rotted, they may not do what I want anyway.",
+    "Well I guess now I don't get a zombie cat... I need to balance my spell cards so I don't make them too complex.",
+    "If I limit myself to one Spell Card per zombie and maximum of 10 power points I shouldn't have too much trouble even at this range.",
+    "Though as the abject failure Reginald's just demonstrated, they're not always going to listen to my commands anyway.",
+    "I should also keep in mind that I can learn new spells as I go, and even use my zombies to create new Spell Cards from the deck screen.",
+    "For now, let's try sending Reginald out into the Graveyard to do something!"
+],
+"cutscene":[0,1],
+"outcome_text":["A zombie stumbles forth!"],
+"outcome_scene":["sc1_hub_1"]
+}
