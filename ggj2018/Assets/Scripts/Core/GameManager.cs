@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour
     private SceneController sceneController;
     private DialogueController dialogueController;
 
+   // public AudioSource soundManager; //thing that managers sound
+    /// </summary>
     // Use this for initialization
 	void Awake ()
     {
@@ -20,8 +23,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+        
         DontDestroyOnLoad(gameObject);
+
+       // DontDestroyOnLoad(soundManager.gameObject);
 
         InitScene();
 	}
@@ -30,7 +35,7 @@ public class GameManager : MonoBehaviour
     {
         sceneController = FindObjectOfType<SceneController>();
         dialogueController = FindObjectOfType<DialogueController>();
-        StartSequence(sceneController.sectionName);
+        if(sceneController) StartSequence(sceneController.sectionName);
     }
 
     public void StartSequence(string sequenceName)
@@ -49,10 +54,14 @@ public class GameManager : MonoBehaviour
     private void OnDialogueComplete()
     {
         dialogueController.gameObject.SetActive(false);
+        sceneController.gameObject.SetActive(false);
         //DisplayNextScene
     }
 
-
+    public void StartGame()
+    {
+        SceneManager.LoadScene(1);
+    }
 
 	// Update is called once per frame
 	void Update () {
