@@ -72,7 +72,7 @@ public class CardManager : MonoBehaviour {
             inGameCard.GetComponent<RectTransform>().anchoredPosition = new Vector2(x, y);
             x += cardXspace;
         }
-
+        //TODO
         instructions = "What is your command?";
     }
 
@@ -81,7 +81,7 @@ public class CardManager : MonoBehaviour {
     {
         CardEmotion resultEmotion = choiceTree.calculateViolence(card);
         CardElement resultElement = choiceTree.calculateElement(card);
-
+        //TODO
         instructions = "You chose a " + card.cardDescriptionText + " approach. The zombies decided to take a "
             + resultEmotion.ToString() + ", " + resultElement + " approach!";
 

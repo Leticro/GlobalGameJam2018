@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager _instance = null;
 
 	public ScrollingDialogue outcomeButton;
+    public CardManager cardManager;
     private SceneController sceneController;
     private DialogueController dialogueController;
 	private SceneData sceneData;
@@ -40,11 +41,12 @@ public class GameManager : MonoBehaviour
     {
         sceneController = FindObjectOfType<SceneController>();
         dialogueController = FindObjectOfType<DialogueController>();
+
 		if (sceneController) 
 		{
 			StartSequence (sceneController.GetSequenceName ());
 		}
-			
+            
     }
 
     public void StartSequence(string sequenceName)
@@ -67,15 +69,22 @@ public class GameManager : MonoBehaviour
 
     private void OnDialogueComplete()
     {
-        dialogueController.gameObject.SetActive(false);
-        sceneController.gameObject.SetActive(false);
+       // dialogueController.gameObject.SetActive(false);
+        //sceneController.gameObject.SetActive(false);
 		StartNextPhase();
         //DisplayNextScene
     }
 
 	private void StartNextPhase()
 	{
-		DisplayOutcome (0);
+        if(cardManager)
+        {
+            cardManager.drawHand();
+        }
+        else if(sceneController.sectionName=="intro")
+        {
+            SceneManager.LoadScene("sc1_hub0");
+        }
 	}
 
 	public void StartTurn()
@@ -83,11 +92,16 @@ public class GameManager : MonoBehaviour
 		
 	}
 
+    public void DisplayOutcomeText(string outcomeText)
+    {
+        outcomeButton.InitDialogue(outcomeText);
+        outcomeButton.gameObject.SetActive(true);
+    }
+
 	public void DisplayOutcome(int outcome)
 	{
 		outcomeId = outcome;
-		outcomeButton.InitDialogue (sceneData.GetOutcomeText (outcomeId));
-		outcomeButton.gameObject.SetActive (true);
+        DisplayOutcomeText(sceneData.GetOutcomeText(outcomeId));
 	}
 
 	public void ExecOutcome()
