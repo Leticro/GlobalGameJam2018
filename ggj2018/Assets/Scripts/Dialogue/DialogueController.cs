@@ -18,7 +18,8 @@ public class DialogueController : MonoBehaviour
 
     public bool NextSection()
     {
-		if(++textIndex < textArr.Length)
+		textIndex++;
+		if(textIndex < textArr.Length)
         {
 			dialogue.AddDialogue(textArr[textIndex]);
             return true;

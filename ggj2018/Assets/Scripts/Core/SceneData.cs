@@ -2,20 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SceneAction
-{
-	LoadScene,
-	StartTurn,
-	MainMenu
-}
-
 [System.Serializable]
 public class SceneData
 {
 	public string[]  text;
 	public int[] cutscene;
-	public string nextAction;
-	public string nextSceneName;
+	public string[] outcome_text;
+	public string[] outcome_scene;
 
 	public int GetSpriteIndex(int key)
 	{
@@ -25,20 +18,18 @@ public class SceneData
 		return cutscene [key];
 	}
 
-	public SceneAction GetNextAction()
+	public string GetOutcomeText(int outcome)
 	{
-		switch (nextAction) 
-		{
-		case "Load":
-			return SceneAction.LoadScene;
-		case "StartTurn":
-			return SceneAction.StartTurn;
-		}
-		return SceneAction.MainMenu;
+		return outcome_text [outcome];
 	}
 
-	public string GetNextSceneName()
+	public string GetOutcomeScene(int outcome)
 	{
-		return nextSceneName;
+		if (outcome >= outcome_scene.Length) 
+		{
+			Debug.Log (outcome + " is out of array bounds");
+			return "sc1_hub_0";
+		}
+		return outcome_scene [outcome];
 	}
 }

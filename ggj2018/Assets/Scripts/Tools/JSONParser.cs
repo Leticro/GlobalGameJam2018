@@ -19,19 +19,4 @@ public class JSONParser : MonoBehaviour
 		}
 		return null;
 	}
-
-	public void SaveSceneData()
-	{
-		SceneData testData = new SceneData();
-		testData.text = new string[2]{"Ohai","mark"};
-		testData.cutscene = new int[2]{ 0, 0 };
-		testData.nextAction ="Load";
-		testData.nextSceneName = "Hub_0";
-		string str = JsonUtility.ToJson(testData);
-
-		string fileName = "JSON/intro.json";
-		string path = Path.Combine(Application.dataPath, fileName);
-
-		File.WriteAllText(path,str);
-	}
 }

@@ -7,9 +7,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager _instance = null;
 
+	public ScrollingDialogue outcomeButton;
     private SceneController sceneController;
     private DialogueController dialogueController;
 	private SceneData sceneData;
+
+	private int outcomeId = 0;
 
    // public AudioSource soundManager; //thing that managers sound
     /// </summary>
@@ -72,20 +75,32 @@ public class GameManager : MonoBehaviour
 
 	private void StartNextPhase()
 	{
-		SceneAction nextAction = sceneData.GetNextAction ();
-		if (nextAction == SceneAction.LoadScene) {
-			SceneManager.LoadScene (sceneData.GetNextSceneName ());
-		} else if (nextAction == SceneAction.MainMenu) {
-			SceneManager.LoadScene ("main");
-		} else if (nextAction == SceneAction.StartTurn) {
-			Debug.Log ("Starting Turn!");
-		}
+		DisplayOutcome (0);
 	}
 
-    public void StartGame()
-    {
-        SceneManager.LoadScene("intro");
-    }
+
+	public void StartTurn()
+	{
+		
+	}
+
+	public void DisplayOutcome(int outcome)
+	{
+		outcomeId = outcome;
+		outcomeButton.InitDialogue (sceneData.GetOutcomeText (outcomeId));
+		outcomeButton.gameObject.SetActive (true);
+	}
+
+	public void ExecOutcome()
+	{
+		SceneManager.LoadScene (sceneData.GetOutcomeScene (outcomeId));
+	}
+	
+
+	public void StartGame()
+	{
+		SceneManager.LoadScene("intro");
+	}
 
 	public void ExitGame()
 	{
