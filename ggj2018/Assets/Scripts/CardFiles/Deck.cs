@@ -17,7 +17,6 @@ public class Deck : MonoBehaviour
         {
             Cards.Add(cardList.getRandomCard());
         }
-        print(Cards.Count);
     }
 
     public Card drawFromDeck()

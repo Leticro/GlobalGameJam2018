@@ -33,8 +33,6 @@ public class CardManager : MonoBehaviour {
         deck = Instantiate(deckPrefab);
 
         canvas = this.transform.GetChild(0).GetComponent<Canvas>();
-        print("test");
-        print(canvas);
 
         DontDestroyOnLoad(deck);
         DontDestroyOnLoad(this.gameObject);
@@ -69,15 +67,16 @@ public class CardManager : MonoBehaviour {
     // user has chosen a card
     public void continueWithChoice(Card card)
     {
-        print("continue");
         choiceTree = FindObjectOfType<ChoiceTree>();
         CardEmotion resultEmotion = choiceTree.calculateViolence(card);
         CardElement resultElement = choiceTree.calculateElement(card);
 
         // 0 = fail, 1 = success1, 2 = success2
         int result = choiceTree.compareResult(resultEmotion, resultElement);
-        choiceTree.printGoalCompare(resultEmotion, resultElement);
+
+        //choiceTree.printGoalCompare(resultEmotion, resultElement);
         print(result);
+
         // remove card display
         foreach (Card c in inGameHand)
         {
