@@ -94,7 +94,7 @@ public class ChoiceTree : MonoBehaviour {
             {
                 e1 = CardElement.fluid;
             }
-            if (elementValue < water)
+            if (elementValue < fluid + water)
             {
                 e1 = CardElement.water;
             }
@@ -107,7 +107,7 @@ public class ChoiceTree : MonoBehaviour {
             {
                 e2 = CardElement.fluid;
             }
-            if (elementValue < water)
+            if (elementValue < fluid + water)
             {
                 e2 = CardElement.water;
             }

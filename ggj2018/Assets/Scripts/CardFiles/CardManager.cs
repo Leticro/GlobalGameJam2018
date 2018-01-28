@@ -100,7 +100,7 @@ public class CardManager : MonoBehaviour {
         CardEmotion resultEmotion = choiceTree.calculateViolence(card);
         CardElement resultElement = choiceTree.calculateElement(card);
      
-        instructions = "You chose a " + card.cardDescriptionText.GetComponent<Text>().text + " approach. The zombies decided to take a "
+        instructions = "You chose a " + card.cardText.GetComponent<Text>().text + " approach. The zombies decided to take a "
             + resultEmotion.ToString() + ", " + resultElement + " approach!";
 
         GameManager._instance.DisplaySelectionText(instructions);
