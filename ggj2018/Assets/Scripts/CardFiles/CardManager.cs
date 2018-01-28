@@ -100,7 +100,7 @@ public class CardManager : MonoBehaviour {
         CardEmotion resultEmotion = choiceTree.calculateViolence(card);
         CardElement resultElement = choiceTree.calculateElement(card);
      
-        instructions = "You chose a " + card.cardDescriptionText.GetComponent<Text>().text + " approach. The zombies decided to take a "
+        instructions = "You chose a " + card.cardText.GetComponent<Text>().text + " approach. The zombies decided to take a "
             + resultEmotion.ToString() + ", " + resultElement + " approach!";
 
         GameManager._instance.DisplaySelectionText(instructions);
@@ -109,7 +109,8 @@ public class CardManager : MonoBehaviour {
         // remove card display
         foreach (Card c in inGameHand)
         {
-            c.gameObject.SetActive(false);
+            c.GetComponent<RectTransform>().SetSiblingIndex(0);
+            c.GetComponent<Button>().interactable = false;
            // Destroy(c.gameObject);
         }
 
