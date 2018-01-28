@@ -1,0 +1,12 @@
+{
+"text":["As the last Scout sprint into the distance you see your chance ahead! The forest runs thick as you pursue your targets. Exhaustion is inevitable, unlike your horde's. A calm River promises to be the meeting place between your forces."],
+"cutscene":[0],
+"outcome_text":[
+"The perfect disguise! Your zombies disguise themselves as villagers who already look like zombies. Their spores slowly seep across the village. The cloud goes unnoticed among the visual decay already in the air... May you continue on with your most aesthetic crusade my fabulous young Necromancer!",
+"You are unsure why your zombies harmlessly exploded on the outskirts of the village. A couple villagers cough. A couple get pitchforks and kill the ones that coughed, and life continues on in the sleepy little village. ",
+" Apparently hugging isn't appreciated in this village. Calls of peasants being scandalized roar as your zombies are beaten to death by jealous spouses. Your hoard is decimated and reginald is asked to appear on “Maury”",
+"You order your zombies to charge and all too late you, remember their critical weakness... Pitchforks... These villagers are very armed, and very angry! Your hoard disappears beneath a flurry of pointy sticks! ",
+"Your zombies decide to take the phrase poisoning the village well quite literally! After one falls in, it takes only but a few hours for the infection to spread across the village with no one realizing that the zombie infection has already started! I hope you know how to boil water my young toxicant! ",
+"As dirty as these villagers are, apparently they don't appreciate being vomited on. Not only do some return the favor but the others stab you with kitchen knives, quickly eviscerating what few zombies you have!"],
+"outcome_scene":["sc1_hub_2", "sc1_hub_2", "sc1_hub_3","sc1_hub_2","sc1_hub_3","sc1_hub_2"]
+}
