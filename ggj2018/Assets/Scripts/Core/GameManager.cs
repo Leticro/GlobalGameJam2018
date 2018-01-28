@@ -9,12 +9,14 @@ public class GameManager : MonoBehaviour
 
     private SceneController sceneController;
     private DialogueController dialogueController;
+	private SceneData sceneData;
 
    // public AudioSource soundManager; //thing that managers sound
     /// </summary>
     // Use this for initialization
 	void Awake ()
     {
+		
 	    if(_instance == null)
         {
             _instance = this;
@@ -24,7 +26,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
        // DontDestroyOnLoad(soundManager.gameObject);
 
@@ -35,13 +37,22 @@ public class GameManager : MonoBehaviour
     {
         sceneController = FindObjectOfType<SceneController>();
         dialogueController = FindObjectOfType<DialogueController>();
-        if(sceneController) StartSequence(sceneController.sectionName);
+		if (sceneController) 
+		{
+			StartSequence (sceneController.GetSequenceName ());
+		}
+			
     }
 
     public void StartSequence(string sequenceName)
     {
-        dialogueController.StartScene(sequenceName);
-        sceneController.StartScene(sequenceName);
+		sceneData = JSONParser.GetSceneData (sequenceName);
+		if (sceneData == null) {
+			Debug.Log ("No scene data found!");
+			return;
+		}
+        dialogueController.StartSequence(sceneData.text);
+        sceneController.StartSequence(sceneData);
     }
 
     public void NextSection()
@@ -55,16 +66,29 @@ public class GameManager : MonoBehaviour
     {
         dialogueController.gameObject.SetActive(false);
         sceneController.gameObject.SetActive(false);
+		StartNextPhase();
         //DisplayNextScene
     }
 
+	private void StartNextPhase()
+	{
+		SceneAction nextAction = sceneData.GetNextAction ();
+		if (nextAction == SceneAction.LoadScene) {
+			SceneManager.LoadScene (sceneData.GetNextSceneName ());
+		} else if (nextAction == SceneAction.MainMenu) {
+			SceneManager.LoadScene ("main");
+		} else if (nextAction == SceneAction.StartTurn) {
+			Debug.Log ("Starting Turn!");
+		}
+	}
+
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("intro");
     }
 
-	// Update is called once per frame
-	void Update () {
-		
+	public void ExitGame()
+	{
+		Application.Quit ();
 	}
 }

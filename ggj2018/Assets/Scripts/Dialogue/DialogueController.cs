@@ -6,35 +6,23 @@ public class DialogueController : MonoBehaviour
 {
    
     public ScrollingDialogue dialogue;
-
-    private string sectionName = "Intro";
-    private int textCount = 10;
+	private string[] textArr;
     private int textIndex = 0;
 
-    public void StartScene(string sceneName)
+	public void StartSequence(string[] textSeq)
     {
-        sectionName = sceneName+"-Text";
+		textArr = textSeq;    
         textIndex = 0;
-        textCount = INIParser.IniSectionCount(sectionName);
-        dialogue.InitDialogue(INIParser.IniReadValue(sectionName, GetSectionKey()));
-        
+		dialogue.InitDialogue(textArr[textIndex]);
     }
 
     public bool NextSection()
     {
-        if(++textIndex < textCount)
+		if(++textIndex < textArr.Length)
         {
-            string txt = INIParser.IniReadValue(sectionName, GetSectionKey());
-            if (txt == null || txt.Length < 2)
-                txt = "There was an error finding the dialogue.";
-            dialogue.AddDialogue(txt);
+			dialogue.AddDialogue(textArr[textIndex]);
             return true;
         }
         return false;
-    }
-
-    private string GetSectionKey()
-    {
-        return "text_" + textIndex;
     }
 }
