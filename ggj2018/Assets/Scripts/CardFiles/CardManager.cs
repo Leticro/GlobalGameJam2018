@@ -109,7 +109,8 @@ public class CardManager : MonoBehaviour {
         // remove card display
         foreach (Card c in inGameHand)
         {
-            c.gameObject.SetActive(false);
+            c.GetComponent<RectTransform>().SetSiblingIndex(0);
+            c.GetComponent<Button>().interactable = false;
            // Destroy(c.gameObject);
         }
 
