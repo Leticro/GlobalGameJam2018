@@ -142,11 +142,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8674030a371b944bbde4af1f932bc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  routeAV: 
+  routeAN: 
+  routeCV: 
+  routeCN: 
+  routeWV: 
+  routeWN: 
   handSize: 8
   cardList: {fileID: 114273041799594236, guid: 93170e9730d4f5e4ea0fa9115b4a269d, type: 2}
   deckPrefab: {fileID: 114168898235361560, guid: fdd4e4135ae47ba419e73af94d10055f,
     type: 2}
-  choiceTree: {fileID: 0}
+  choiceTree: {fileID: 114838872879757776, guid: e971bf6e9b3032c4a8e6b50b135e53ec,
+    type: 2}
   instructions: {fileID: 0}
 --- !u!4 &199245182
 Transform:

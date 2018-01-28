@@ -2,8 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CardManager : MonoBehaviour {
+
+    public string routeAV;
+    public string routeAN;
+    public string routeCV;
+    public string routeCN;
+    public string routeWV;
+    public string routeWN;
 
     public int handSize = 8;
     public CardList cardList;
@@ -25,9 +33,9 @@ public class CardManager : MonoBehaviour {
     private int cardYspace = 120;
 
     // Instructions
-    public Text instructions;
+    private string instructions;
 
-    public RouteChoice RouteChoice { get; set; }
+    private RouteChoice routeChoice;
 
     // Use this for initialization
     void Start() {
@@ -39,7 +47,7 @@ public class CardManager : MonoBehaviour {
         //DontDestroyOnLoad(deck);
         //DontDestroyOnLoad(this.gameObject);
 
-        //drawHand();
+        drawHand();
     }
 
     public void drawHand()
@@ -64,7 +72,8 @@ public class CardManager : MonoBehaviour {
             inGameCard.GetComponent<RectTransform>().anchoredPosition = new Vector2(x, y);
             x += cardXspace;
         }
-        
+
+        instructions = "What is your command?";
     }
 
     // user has chosen a card
@@ -73,7 +82,10 @@ public class CardManager : MonoBehaviour {
         CardEmotion resultEmotion = choiceTree.calculateViolence(card);
         CardElement resultElement = choiceTree.calculateElement(card);
 
-        RouteChoice = choiceTree.findRoute(resultEmotion, resultElement);
+        instructions = "You chose a " + card.cardDescriptionText + " approach. The zombies decided to take a "
+            + resultEmotion.ToString() + ", " + resultElement + " approach!";
+
+        routeChoice = choiceTree.findRoute(resultEmotion, resultElement);
 
         // remove card display
         foreach (Card c in inGameHand)
@@ -87,6 +99,19 @@ public class CardManager : MonoBehaviour {
         //    deck.Cards.Add(hand[hand.Count-1]);
         //    hand.RemoveAt(hand.Count-1);
         //}
+    }
+
+    public void loadNextScene()
+    {
+        switch(routeChoice)
+        {
+            case RouteChoice.AirViolent: SceneManager.LoadScene(routeAN); break;
+            case RouteChoice.AirNon: SceneManager.LoadScene(routeAV); break;
+            case RouteChoice.ContactViolent: SceneManager.LoadScene(routeCV); break;
+            case RouteChoice.ContactNon: SceneManager.LoadScene(routeCN); break;
+            case RouteChoice.WaterViolent: SceneManager.LoadScene(routeWV); break;
+            case RouteChoice.WaterNon: SceneManager.LoadScene(routeWN); break;
+        }
     }
 
 
