@@ -353,7 +353,7 @@ Prefab:
     - target: {fileID: 114567501525004206, guid: 24761225eaf00c9488e26096c9a7de44,
         type: 2}
       propertyPath: sectionName
-      value: sc3_hub1
+      value: sc3_hub2
       objectReference: {fileID: 0}
     - target: {fileID: 114307317268283942, guid: 24761225eaf00c9488e26096c9a7de44,
         type: 2}
