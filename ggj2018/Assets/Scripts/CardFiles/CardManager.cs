@@ -26,12 +26,20 @@ public class CardManager : MonoBehaviour {
     private Canvas canvas;
     public ChoiceTree choiceTree;
 
-    // card start coordinates
-    private int cardX = -383;
-    private int cardY = 77;
-    //card spacing
-    private int cardXspace = 152;
-    private int cardYspace = 222;
+    //// card start coordinates
+    //private int cardX = -383;
+    //private int cardY = 77;
+    ////card spacing
+    //private int cardXspace = 152;
+    //private int cardYspace = 222;
+
+    // initial anchors
+    Vector2 minAnchor = new Vector2(.025f, .46f);
+    Vector2 maxAnchor = new Vector2(.16f, .83f);
+    
+    // distance between cards
+    float anchorX = .1614f;
+    float anchorY = .42f;
 
     // Instructions
     private string instructions;
@@ -40,7 +48,6 @@ public class CardManager : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-
         //deck = Instantiate(deckPrefab);
 
         canvas = this.transform.GetChild(0).GetComponent<Canvas>();
@@ -48,7 +55,7 @@ public class CardManager : MonoBehaviour {
         //DontDestroyOnLoad(deck);
         //DontDestroyOnLoad(this.gameObject);
 
-       // drawHand();
+       drawHand();
     }
 
     public void drawHand()
@@ -56,8 +63,9 @@ public class CardManager : MonoBehaviour {
         hand = new List<Card>();
         inGameHand = new List<Card>();
 
-        int x = cardX;
-        int y = cardY;
+        Vector2 min = minAnchor;
+        Vector2 max = maxAnchor;
+
         while (hand.Count < handSize /* && deck.Cards.Count > 0 */)
         {
             //Card card = deck.drawFromDeck();
@@ -67,11 +75,19 @@ public class CardManager : MonoBehaviour {
             inGameHand.Add(inGameCard);
             if (hand.Count == 5)
             {
-                x = cardX;
-                y -= cardYspace;
+                min = minAnchor;
+                max = maxAnchor;
+                min.y -= anchorY;
+                max.y -= anchorY;
             }
-            inGameCard.GetComponent<RectTransform>().anchoredPosition = new Vector2(x, y);
-            x += cardXspace;
+            inGameCard.GetComponent<RectTransform>().anchorMin = min;
+            inGameCard.GetComponent<RectTransform>().anchorMax = max;
+            min.x += anchorX;
+            max.x += anchorX;
+
+
+            inGameCard.GetComponent<RectTransform>().offsetMax = new Vector2();
+            inGameCard.GetComponent<RectTransform>().offsetMin = new Vector2();
         }
       
         instructions = "What is your command?";
