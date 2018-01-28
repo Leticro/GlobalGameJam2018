@@ -1,13 +1,13 @@
 {
-“text”:[“Now that the vile village has fallen to your glorious hoard of ghouls, you can finally continue onto your actual objective! Before you are the moat and lever that controls the drawbridge, which leads to the scum-filled castle. You must eliminate it quickly! It appears to be guarded by a small contingent of knights and even has a small catapult nearby... Approach carefully, the real fight begins now!”],
-“Cutscene”:[0],
-“Outcome_text:[
-“ A stroke of genius, my liege! Use their own catapult against them by launching a zombie filled with spores directly onto the knights! Though that does still leave the trivial problem of the door still being down. May you continue to leap towards you conquests!”,
-“Your Zombies attempt, hoping against hope, to use their spores to gently waft to the knights. Not only do they fail by simply standing there slack-jawed, it also accomplishes literally nothing to open the drawbridge anyhow. Perhaps you should look into hiring better help? Reginald chased a butterfly and now he's gone too…”,
-“Surprisingly large amounts metal prevents your zombies from being able to bite down on flesh. I think this one was kind of doomed to failure to begin with... Reginald breaks his teeth and requires “ Zombies compensation” from you…”,
-“Hugging knights may not have been the most ingenious idea. Knights have not only large amounts of armor but as your zombies are about to find out, they also carry halberds. This was not a clever plan... “,
-“While your zombies incorporate the marvelous idea of vomiting into the catapult, the knights seem intent on stopping them from launching it... And seem keen on also cutting off their heads…”, 
-“Your Zombies decided to wade into the water and simply play the waiting game. Thankfully the knight seems thirsty and eventually takes a drink, quickly infecting all of them and by some serendipity one of them manages to land on the gate controls lowering the drawbridge for you.”
+"text":["Now that the vile village has fallen to your glorious hoard of ghouls, you can finally continue onto your actual objective! Before you are the moat and lever that controls the drawbridge, which leads to the scum-filled castle. You must eliminate it quickly! It appears to be guarded by a small contingent of knights and even has a small catapult nearby... Approach carefully, the real fight begins now!"],
+"cutscene":[0],
+"outcome_text":[
+" A stroke of genius, my liege! Use their own catapult against them by launching a zombie filled with spores directly onto the knights! Though that does still leave the trivial problem of the door still being down. May you continue to leap towards you conquests!",
+"Your Zombies attempt, hoping against hope, to use their spores to gently waft to the knights. Not only do they fail by simply standing there slack-jawed, it also accomplishes literally nothing to open the drawbridge anyhow. Perhaps you should look into hiring better help? Reginald chased a butterfly and now he's gone too…",
+"Surprisingly large amounts metal prevents your zombies from being able to bite down on flesh. I think this one was kind of doomed to failure to begin with... Reginald breaks his teeth and requires \" Zombies compensation\" from you…",
+"Hugging knights may not have been the most ingenious idea. Knights have not only large amounts of armor but as your zombies are about to find out, they also carry halberds. This was not a clever plan... ",
+"While your zombies incorporate the marvelous idea of vomiting into the catapult, the knights seem intent on stopping them from launching it... And seem keen on also cutting off their heads…", 
+"Your Zombies decided to wade into the water and simply play the waiting game. Thankfully the knight seems thirsty and eventually takes a drink, quickly infecting all of them and by some serendipity one of them manages to land on the gate controls lowering the drawbridge for you."
 ],
-“Outcome_scene”:[“”]
+"outcome_scene":[""]
 }
