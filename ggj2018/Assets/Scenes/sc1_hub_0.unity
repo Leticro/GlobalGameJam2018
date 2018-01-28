@@ -194,6 +194,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &735060151
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4508706469961840, guid: 5d3f53bc469cfa94cacc10eacf71fa3f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 458.47244
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508706469961840, guid: 5d3f53bc469cfa94cacc10eacf71fa3f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 225.74573
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508706469961840, guid: 5d3f53bc469cfa94cacc10eacf71fa3f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 8.104846
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508706469961840, guid: 5d3f53bc469cfa94cacc10eacf71fa3f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508706469961840, guid: 5d3f53bc469cfa94cacc10eacf71fa3f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508706469961840, guid: 5d3f53bc469cfa94cacc10eacf71fa3f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508706469961840, guid: 5d3f53bc469cfa94cacc10eacf71fa3f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508706469961840, guid: 5d3f53bc469cfa94cacc10eacf71fa3f, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5d3f53bc469cfa94cacc10eacf71fa3f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!114 &814757814 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114102613827681180, guid: 24761225eaf00c9488e26096c9a7de44,
@@ -538,6 +580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569184d2ae4d531429175c02ce1ccae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectionButton: {fileID: 0}
   outcomeButton: {fileID: 1449834932}
   cardManager: {fileID: 814757814}
 --- !u!4 &1905284081
