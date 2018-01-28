@@ -39,6 +39,9 @@ public class GameManager : MonoBehaviour
 	
     private void InitScene()
     {
+
+        if (cardManager == null)
+            cardManager = FindObjectOfType<CardManager>();
         sceneController = FindObjectOfType<SceneController>();
         dialogueController = FindObjectOfType<DialogueController>();
 
@@ -79,34 +82,47 @@ public class GameManager : MonoBehaviour
 	{
         if(cardManager)
         {
-            cardManager.drawHand();
+            Debug.Log("Starting Turn");
+            StartTurn();
         }
         else if(sceneController.sectionName=="intro")
         {
-            SceneManager.LoadScene("sc1_hub0");
+            SceneManager.LoadScene("sc1_hub_0");
+        }
+        else
+        {
+            Debug.Log("Null Card Manager");
         }
 	}
 
 	public void StartTurn()
 	{
-		
-	}
+        cardManager.drawHand();
+    }
+
+    public void DisplayTurnText(string turnText)
+    {
+        Debug.Log(turnText + "should be displayed!");
+    }
 
     public void DisplayOutcomeText(string outcomeText)
     {
+        Debug.Log(outcomeText + "should be displayed");
         outcomeButton.InitDialogue(outcomeText);
         outcomeButton.gameObject.SetActive(true);
     }
 
+    /*
 	public void DisplayOutcome(int outcome)
 	{
 		outcomeId = outcome;
         DisplayOutcomeText(sceneData.GetOutcomeText(outcomeId));
 	}
+    */
 
 	public void ExecOutcome()
 	{
-		SceneManager.LoadScene (sceneData.GetOutcomeScene (outcomeId));
+        cardManager.loadNextScene();
 	}
 	
 

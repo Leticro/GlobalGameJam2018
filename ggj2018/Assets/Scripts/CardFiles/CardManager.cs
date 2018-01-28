@@ -47,7 +47,7 @@ public class CardManager : MonoBehaviour {
         //DontDestroyOnLoad(deck);
         //DontDestroyOnLoad(this.gameObject);
 
-        drawHand();
+       // drawHand();
     }
 
     public void drawHand()
@@ -72,8 +72,9 @@ public class CardManager : MonoBehaviour {
             inGameCard.GetComponent<RectTransform>().anchoredPosition = new Vector2(x, y);
             x += cardXspace;
         }
-        //TODO
+      
         instructions = "What is your command?";
+        GameManager._instance.DisplayTurnText(instructions);
     }
 
     // user has chosen a card
@@ -81,10 +82,11 @@ public class CardManager : MonoBehaviour {
     {
         CardEmotion resultEmotion = choiceTree.calculateViolence(card);
         CardElement resultElement = choiceTree.calculateElement(card);
-        //TODO
-        instructions = "You chose a " + card.cardDescriptionText + " approach. The zombies decided to take a "
+     
+        instructions = "You chose a " + card.cardDescriptionText.GetComponent<Text>().text + " approach. The zombies decided to take a "
             + resultEmotion.ToString() + ", " + resultElement + " approach!";
 
+        GameManager._instance.DisplayOutcomeText(instructions);
         routeChoice = choiceTree.findRoute(resultEmotion, resultElement);
 
         // remove card display

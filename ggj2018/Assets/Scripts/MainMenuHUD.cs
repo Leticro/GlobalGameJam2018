@@ -17,7 +17,7 @@ public class MainMenuHUD : MonoBehaviour
 
     void startClick()
     {
-        SceneManager.LoadScene("0_graveyard");
+        SceneManager.LoadScene("intro");
     }
 
     void exitClick()
