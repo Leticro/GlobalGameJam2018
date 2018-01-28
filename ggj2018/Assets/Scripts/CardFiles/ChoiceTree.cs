@@ -33,19 +33,19 @@ public class ChoiceTree : MonoBehaviour {
         {
             return RouteChoice.WaterViolent;
         }
-        if (emotion == CardEmotion.violent && element == CardElement.airborne)
+        if (emotion == CardEmotion.nonviolent && element == CardElement.airborne)
         {
             return RouteChoice.AirNon;
         }
-        if (emotion == CardEmotion.violent && element == CardElement.fluid)
+        if (emotion == CardEmotion.nonviolent && element == CardElement.fluid)
         {
             return RouteChoice.ContactNon;
         }
-        if (emotion == CardEmotion.violent && element == CardElement.water)
+        if (emotion == CardEmotion.nonviolent && element == CardElement.water)
         {
             return RouteChoice.WaterNon;
         }
-        return RouteChoice.None;
+        return RouteChoice.AirViolent;
     }
 
     public CardEmotion calculateViolence(Card card)

@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class CardManager : MonoBehaviour {
 
-    public string routeAV;
-    public string routeAN;
-    public string routeCV;
-    public string routeCN;
-    public string routeWV;
-    public string routeWN;
+
+    public string routeAV = "sc1_hub2";
+    public string routeAN = "sc1_hub2";
+    public string routeCV = "sc1_hub2";
+    public string routeCN = "sc1_hub2";
+    public string routeWV = "sc1_hub2";
+    public string routeWN = "sc1_hub2";
 
     public int handSize = 8;
     public CardList cardList;
@@ -25,12 +26,20 @@ public class CardManager : MonoBehaviour {
     private Canvas canvas;
     public ChoiceTree choiceTree;
 
-    // card start coordinates
-    private int cardX = -160;
-    private int cardY = 100;
-    //card spacing
-    private int cardXspace = 80;
-    private int cardYspace = 120;
+    //// card start coordinates
+    //private int cardX = -383;
+    //private int cardY = 77;
+    ////card spacing
+    //private int cardXspace = 152;
+    //private int cardYspace = 222;
+
+    // initial anchors
+    Vector2 minAnchor = new Vector2(.025f, .46f);
+    Vector2 maxAnchor = new Vector2(.16f, .83f);
+    
+    // distance between cards
+    float anchorX = .1614f;
+    float anchorY = .42f;
 
     // Instructions
     private string instructions;
@@ -39,7 +48,6 @@ public class CardManager : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-
         //deck = Instantiate(deckPrefab);
 
         canvas = this.transform.GetChild(0).GetComponent<Canvas>();
@@ -47,7 +55,7 @@ public class CardManager : MonoBehaviour {
         //DontDestroyOnLoad(deck);
         //DontDestroyOnLoad(this.gameObject);
 
-        drawHand();
+       //drawHand();
     }
 
     public void drawHand()
@@ -55,8 +63,9 @@ public class CardManager : MonoBehaviour {
         hand = new List<Card>();
         inGameHand = new List<Card>();
 
-        int x = cardX;
-        int y = cardY;
+        Vector2 min = minAnchor;
+        Vector2 max = maxAnchor;
+
         while (hand.Count < handSize /* && deck.Cards.Count > 0 */)
         {
             //Card card = deck.drawFromDeck();
@@ -66,14 +75,23 @@ public class CardManager : MonoBehaviour {
             inGameHand.Add(inGameCard);
             if (hand.Count == 5)
             {
-                x = cardX;
-                y -= cardYspace;
+                min = minAnchor;
+                max = maxAnchor;
+                min.y -= anchorY;
+                max.y -= anchorY;
             }
-            inGameCard.GetComponent<RectTransform>().anchoredPosition = new Vector2(x, y);
-            x += cardXspace;
-        }
+            inGameCard.GetComponent<RectTransform>().anchorMin = min;
+            inGameCard.GetComponent<RectTransform>().anchorMax = max;
+            min.x += anchorX;
+            max.x += anchorX;
 
+
+            inGameCard.GetComponent<RectTransform>().offsetMax = new Vector2();
+            inGameCard.GetComponent<RectTransform>().offsetMin = new Vector2();
+        }
+      
         instructions = "What is your command?";
+       // GameManager._instance.DisplayTurnText(instructions);
     }
 
     // user has chosen a card
@@ -81,16 +99,18 @@ public class CardManager : MonoBehaviour {
     {
         CardEmotion resultEmotion = choiceTree.calculateViolence(card);
         CardElement resultElement = choiceTree.calculateElement(card);
-
-        instructions = "You chose a " + card.cardDescriptionText + " approach. The zombies decided to take a "
+     
+        instructions = "You chose a " + card.cardDescriptionText.GetComponent<Text>().text + " approach. The zombies decided to take a "
             + resultEmotion.ToString() + ", " + resultElement + " approach!";
 
+        GameManager._instance.DisplaySelectionText(instructions);
         routeChoice = choiceTree.findRoute(resultEmotion, resultElement);
 
         // remove card display
         foreach (Card c in inGameHand)
         {
-            Destroy(c.gameObject);
+            c.gameObject.SetActive(false);
+           // Destroy(c.gameObject);
         }
 
         // add hand back to deck
@@ -99,6 +119,20 @@ public class CardManager : MonoBehaviour {
         //    deck.Cards.Add(hand[hand.Count-1]);
         //    hand.RemoveAt(hand.Count-1);
         //}
+    }
+
+    public string getSceneName()
+    {
+        switch (routeChoice)
+        {
+            case RouteChoice.AirViolent: return routeAN;
+            case RouteChoice.AirNon: return routeAV;
+            case RouteChoice.ContactViolent: return routeCV;
+            case RouteChoice.ContactNon: return routeCN;
+            case RouteChoice.WaterViolent: return routeWV; 
+            case RouteChoice.WaterNon: return routeWN;
+        }
+        return "main";
     }
 
     public void loadNextScene()
@@ -112,6 +146,26 @@ public class CardManager : MonoBehaviour {
             case RouteChoice.WaterViolent: SceneManager.LoadScene(routeWV); break;
             case RouteChoice.WaterNon: SceneManager.LoadScene(routeWN); break;
         }
+    }
+
+    public RouteChoice GetChoice()
+    {
+        return routeChoice;
+    }
+
+    public int GetRouteChoiceId()
+    {
+        switch (routeChoice)
+        {
+            case RouteChoice.AirViolent: return 0;
+            case RouteChoice.AirNon: return 1;
+            case RouteChoice.ContactViolent: return 2;
+            case RouteChoice.ContactNon: return 3;
+            case RouteChoice.WaterViolent: return 4;
+            case RouteChoice.WaterNon: return 5;
+        }
+       
+        return 0;
     }
 
 

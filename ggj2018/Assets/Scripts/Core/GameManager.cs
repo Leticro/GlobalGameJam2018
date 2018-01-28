@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager _instance = null;
 
+    public ScrollingDialogue selectionButton;
 	public ScrollingDialogue outcomeButton;
+    public CardManager cardManager;
     private SceneController sceneController;
     private DialogueController dialogueController;
 	private SceneData sceneData;
@@ -38,13 +40,17 @@ public class GameManager : MonoBehaviour
 	
     private void InitScene()
     {
+
+        if (cardManager == null)
+            cardManager = FindObjectOfType<CardManager>();
         sceneController = FindObjectOfType<SceneController>();
         dialogueController = FindObjectOfType<DialogueController>();
+
 		if (sceneController) 
 		{
 			StartSequence (sceneController.GetSequenceName ());
 		}
-			
+            
     }
 
     public void StartSequence(string sequenceName)
@@ -75,24 +81,62 @@ public class GameManager : MonoBehaviour
 
 	private void StartNextPhase()
 	{
-		DisplayOutcome (0);
+        if(cardManager)
+        {
+            Debug.Log("Starting Turn");
+            StartTurn();
+        }
+        else if(sceneController.sectionName=="intro")
+        {
+            SceneManager.LoadScene("sc1_hub_1");
+        }
+        else
+        {
+            Debug.Log("Null Card Manager");
+        }
 	}
 
 	public void StartTurn()
 	{
-		
-	}
+        cardManager.drawHand();
+    }
 
+    public void DisplayTurnText(string turnText)
+    {
+        Debug.Log(turnText + "should be displayed!");
+    }
+
+    public void DisplaySelectionText(string selectText)
+    {
+        selectionButton.gameObject.SetActive(true);
+        Debug.Log(selectText + "should be displayed");
+        selectionButton.InitDialogue(selectText);
+        selectionButton.gameObject.SetActive(true);
+    }
+
+    public void DisplayOutcomeText()
+    {
+        string outcomeText = sceneData.GetOutcomeText(cardManager.GetRouteChoiceId());
+        selectionButton.gameObject.SetActive(false);
+        Debug.Log(outcomeText + "should be displayed");
+
+        outcomeButton.InitDialogue(outcomeText);
+        outcomeButton.gameObject.SetActive(true);
+    }
+
+    /*
 	public void DisplayOutcome(int outcome)
 	{
 		outcomeId = outcome;
-		outcomeButton.InitDialogue (sceneData.GetOutcomeText (outcomeId));
-		outcomeButton.gameObject.SetActive (true);
+        DisplayOutcomeText(sceneData.GetOutcomeText(outcomeId));
 	}
+    */
 
 	public void ExecOutcome()
 	{
-		SceneManager.LoadScene (sceneData.GetOutcomeScene (outcomeId));
+        Debug.Log("trying to load");
+        cardManager.loadNextScene();
+        SceneManager.LoadScene(cardManager.getSceneName());
 	}
 	
 

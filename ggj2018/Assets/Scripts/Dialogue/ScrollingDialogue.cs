@@ -43,7 +43,7 @@ public class ScrollingDialogue : MonoBehaviour
         sectionLengths.Add(newText.Length+2);
         if(dialogue.Length>0)
             oldText +=dialogue + "\n\n";
-        while (oldText.Length + newText.Length > maxCharCount)
+        if (oldText.Length + newText.Length > maxCharCount)
         {
             PushSection();
         }
@@ -55,6 +55,7 @@ public class ScrollingDialogue : MonoBehaviour
 
     private void PushSection()
     {
+        if (sectionLengths.Count == 0||oldText.Length == 0) return;
         oldText = oldText.Substring(sectionLengths[0]);
         sectionLengths.RemoveAt(0);
     }
