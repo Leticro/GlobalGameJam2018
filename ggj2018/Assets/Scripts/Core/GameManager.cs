@@ -119,6 +119,7 @@ public class GameManager : MonoBehaviour
         string outcomeText = sceneData.GetOutcomeText(cardManager.GetRouteChoiceId());
         selectionButton.gameObject.SetActive(false);
         Debug.Log(outcomeText + "should be displayed");
+
         outcomeButton.InitDialogue(outcomeText);
         outcomeButton.gameObject.SetActive(true);
     }
@@ -134,7 +135,7 @@ public class GameManager : MonoBehaviour
 	public void ExecOutcome()
 	{
         Debug.Log("trying to load");
-        //cardManager.loadNextScene();
+        cardManager.loadNextScene();
         SceneManager.LoadScene(cardManager.getSceneName());
 	}
 	

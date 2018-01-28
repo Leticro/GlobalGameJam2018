@@ -9,8 +9,14 @@ public class SceneData
 	public int[] cutscene;
 	public string[] outcome_text;
 	public string[] outcome_scene;
+   // public string textAV = "sc1_hub2";
+   // public string textAN = "sc1_hub2";
+   // public string textCV = "sc1_hub2";
+   // public string textCN = "sc1_hub2";
+   // public string textWV = "sc1_hub2";
+   // public string textWN = "sc1_hub2";
 
-	public int GetSpriteIndex(int key)
+    public int GetSpriteIndex(int key)
 	{
 		if (key >= cutscene.Length)
 			return cutscene [cutscene.Length - 1];
@@ -28,7 +34,7 @@ public class SceneData
 		if (outcome >= outcome_scene.Length) 
 		{
 			Debug.Log (outcome + " is out of array bounds");
-			return "sc1_hub_0";
+			return "sc1_hub_1";
 		}
 		return outcome_scene [outcome];
 	}

@@ -55,7 +55,7 @@ public class CardManager : MonoBehaviour {
         //DontDestroyOnLoad(deck);
         //DontDestroyOnLoad(this.gameObject);
 
-       drawHand();
+       //drawHand();
     }
 
     public void drawHand()
@@ -109,7 +109,8 @@ public class CardManager : MonoBehaviour {
         // remove card display
         foreach (Card c in inGameHand)
         {
-            Destroy(c.gameObject);
+            c.gameObject.SetActive(false);
+           // Destroy(c.gameObject);
         }
 
         // add hand back to deck
@@ -124,12 +125,12 @@ public class CardManager : MonoBehaviour {
     {
         switch (routeChoice)
         {
-            case RouteChoice.AirViolent: return routeAN; break;
-            case RouteChoice.AirNon: return routeAV; break;
-            case RouteChoice.ContactViolent: return routeCV; break;
-            case RouteChoice.ContactNon: return routeCN; break;
-            case RouteChoice.WaterViolent: return routeWV; break;
-            case RouteChoice.WaterNon: return routeWN; break;
+            case RouteChoice.AirViolent: return routeAN;
+            case RouteChoice.AirNon: return routeAV;
+            case RouteChoice.ContactViolent: return routeCV;
+            case RouteChoice.ContactNon: return routeCN;
+            case RouteChoice.WaterViolent: return routeWV; 
+            case RouteChoice.WaterNon: return routeWN;
         }
         return "main";
     }
@@ -145,6 +146,11 @@ public class CardManager : MonoBehaviour {
             case RouteChoice.WaterViolent: SceneManager.LoadScene(routeWV); break;
             case RouteChoice.WaterNon: SceneManager.LoadScene(routeWN); break;
         }
+    }
+
+    public RouteChoice GetChoice()
+    {
+        return routeChoice;
     }
 
     public int GetRouteChoiceId()
