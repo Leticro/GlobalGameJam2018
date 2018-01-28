@@ -98,6 +98,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            SceneManager.LoadScene("main");
             Debug.Log("Null Card Manager");
         }
 	}
