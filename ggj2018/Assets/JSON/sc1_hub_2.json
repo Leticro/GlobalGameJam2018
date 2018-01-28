@@ -1,0 +1,11 @@
+{
+"text":[],
+"cutscene":[0],
+"outcome_text":["Unfortunately, spores lose a lot of effectiveness in water. Your hoard managed to explode but the swift current quickly dampens any hope of success. A slightly moldy Scout manages to report back to the Village.",
+"Your zombies had hoped to use current of the river to waft some spores over gently onto him. Unfortunately the fact he is running somewhat circumvented that plan. He warns the town but on the bright side you now a couple zombie tuna… Reginald floats downstream and into the fading sunset...",
+"Sometimes the simplest solutions are the best ones. As the calm river suddenly runs a muddy red with blood, a cacophony of gnashing teeth and grasping hands spews forth from the banks! Your horde devours him turning him into yet another member of your army. Glory to you, my young sociopath!",
+"Well... They are trying to give him a hug in the water... It's not very effective, as at worst, he feels slightly embarrassed. He easily slips away from your horde and manages to reach the village in time to warn the guard!",
+"That was a disgusting victory but a Victory nonetheless. Your zombies heroically charge into the river after the Scout, vomiting as they went so as to contaminate the entire River. They managed to infect him, the wildlife, and perhaps taint this place forever in the memory of all... Long live your glory?",
+"Well thank God they can't die of drowning. Your zombies charge into the water and immediately begin floating on the surface as dead weight. This calm river takes Reginald to his destination wherever he may end up on their magical journey."],
+"outcome_scene":["sc1_hub_2", "sc1_hub_2", "sc1_hub_3","sc1_hub_2","sc1_hub_3","sc1_hub_2"]
+}

@@ -51,3 +51,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569184d2ae4d531429175c02ce1ccae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outcomeButton: {fileID: 0}
