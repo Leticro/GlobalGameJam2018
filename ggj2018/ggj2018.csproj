@@ -293,6 +293,7 @@
     <Compile Include="Assets\Scripts\Core\SceneController.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueController.cs" />
     <Compile Include="Assets\Scripts\Dialogue\ScrollingDialogue.cs" />
+    <Compile Include="Assets\Scripts\RouteChoice.cs" />
     <Compile Include="Assets\Scripts\Tools\IniParser.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

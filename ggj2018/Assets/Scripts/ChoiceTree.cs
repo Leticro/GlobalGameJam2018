@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class ChoiceTree : MonoBehaviour {
 
-    public CardElement elementSuccess1;
-    public CardEmotion emotionSuccess1;
-    public CardElement elementSuccess2;
-    public CardEmotion emotionSuccess2;
+    //public CardElement elementSuccess1;
+    //public CardEmotion emotionSuccess1;
+    //public CardElement elementSuccess2;
+    //public CardEmotion emotionSuccess2;
 
-    public float percentIncrease = .3f;
+    public float percentIncrease = .5f;
     private float violentPercent;
     private float elementPercent;
 
@@ -19,25 +19,33 @@ public class ChoiceTree : MonoBehaviour {
 
     }
 
-    public void printGoalCompare(CardEmotion emotion, CardElement element)
+    public RouteChoice findRoute(CardEmotion emotion, CardElement element)
     {
-        print(emotionSuccess1.ToString() + ", " + elementSuccess1.ToString());
-        print(emotionSuccess2.ToString() + ", " + elementSuccess2.ToString());
-        print(emotion.ToString() + ", " + element.ToString());
-    }
-
-    // 0 = fail, 1 = first success, 2 = second success
-    public int compareResult(CardEmotion emotion, CardElement element)
-    {
-        if (emotion == emotionSuccess1 && element == elementSuccess1)
+        if(emotion == CardEmotion.violent && element == CardElement.airborne)
         {
-            return 1;
+            return RouteChoice.AirViolent;
         }
-        else if (emotion == emotionSuccess1 && element == elementSuccess1)
+        if (emotion == CardEmotion.violent && element == CardElement.fluid)
         {
-            return 2;
+            return RouteChoice.ContactViolent;
         }
-        else return 0;
+        if (emotion == CardEmotion.violent && element == CardElement.water)
+        {
+            return RouteChoice.WaterViolent;
+        }
+        if (emotion == CardEmotion.violent && element == CardElement.airborne)
+        {
+            return RouteChoice.AirNon;
+        }
+        if (emotion == CardEmotion.violent && element == CardElement.fluid)
+        {
+            return RouteChoice.ContactNon;
+        }
+        if (emotion == CardEmotion.violent && element == CardElement.water)
+        {
+            return RouteChoice.WaterNon;
+        }
+        return RouteChoice.None;
     }
 
     public CardEmotion calculateViolence(Card card)

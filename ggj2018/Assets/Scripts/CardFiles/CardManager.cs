@@ -27,6 +27,8 @@ public class CardManager : MonoBehaviour {
     // Instructions
     public Text instructions;
 
+    public RouteChoice RouteChoice { get; set; }
+
     // Use this for initialization
     void Start() {
 
@@ -71,26 +73,12 @@ public class CardManager : MonoBehaviour {
         CardEmotion resultEmotion = choiceTree.calculateViolence(card);
         CardElement resultElement = choiceTree.calculateElement(card);
 
-        // 0 = fail, 1 = success1, 2 = success2
-        int result = choiceTree.compareResult(resultEmotion, resultElement);
-
-        //choiceTree.printGoalCompare(resultEmotion, resultElement);
-        print(result);
+        RouteChoice = choiceTree.findRoute(resultEmotion, resultElement);
 
         // remove card display
         foreach (Card c in inGameHand)
         {
             Destroy(c.gameObject);
-        }
-
-        switch(result)
-        {
-            case 1: // load next scene
-                break;
-            case 2: // load load next scene
-                break;
-            default: // load scene before
-                break;
         }
     }
 
