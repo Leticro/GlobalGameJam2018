@@ -343,7 +343,7 @@ Prefab:
     - target: {fileID: 114102613827681180, guid: 24761225eaf00c9488e26096c9a7de44,
         type: 2}
       propertyPath: routeWN
-      value: sc2_hub2
+      value: sc2_hub3
       objectReference: {fileID: 0}
     - target: {fileID: 114102613827681180, guid: 24761225eaf00c9488e26096c9a7de44,
         type: 2}
