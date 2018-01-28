@@ -70,8 +70,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardDescriptionText: {fileID: 1451097674778668, guid: 3ece8bd5e76085a4b8ee132ab2f5e9a6,
     type: 2}
-  element: 1
-  element2: 2
+  element: 2
+  element2: 3
   emotion: 2
   elementStrength: 0
   pointCost: 0

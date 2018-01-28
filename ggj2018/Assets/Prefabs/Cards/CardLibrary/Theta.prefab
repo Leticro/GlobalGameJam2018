@@ -9,51 +9,60 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1187046794525108}
+  m_RootGameObject: {fileID: 1765818522787814}
   m_IsPrefabParent: 1
---- !u!1 &1187046794525108
+--- !u!1 &1765818522787814
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 224689681886853104}
-  - component: {fileID: 114305514534324938}
-  - component: {fileID: 222250387471606306}
-  - component: {fileID: 114464466763803884}
-  - component: {fileID: 114462670908815958}
+  - component: {fileID: 224000963003261398}
+  - component: {fileID: 222031235983492362}
+  - component: {fileID: 114409521954362578}
+  - component: {fileID: 114000436895447536}
+  - component: {fileID: 114148500641122094}
   m_Layer: 0
-  m_Name: Psi
+  m_Name: Theta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114305514534324938
+--- !u!114 &114000436895447536
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1187046794525108}
+  m_GameObject: {fileID: 1765818522787814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6ab13ddf4f87e64bbf121cf63324a86, type: 3}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardDescriptionText: {fileID: 1451097674778668, guid: 3ece8bd5e76085a4b8ee132ab2f5e9a6,
-    type: 2}
-  element: 0
-  element2: 4
-  emotion: 3
-  elementStrength: 0
-  pointCost: 0
---- !u!114 &114462670908815958
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 98e247a8c50c9f944b3b1c33156d76b3, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!114 &114148500641122094
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1187046794525108}
+  m_GameObject: {fileID: 1765818522787814}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -83,51 +92,42 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 114464466763803884}
+  m_TargetGraphic: {fileID: 114000436895447536}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114464466763803884
+--- !u!114 &114409521954362578
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1187046794525108}
+  m_GameObject: {fileID: 1765818522787814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: e6ab13ddf4f87e64bbf121cf63324a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 18ab1b2594b4abd4f9e9b07f5f242cd3, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &222250387471606306
+  cardDescriptionText: {fileID: 1451097674778668, guid: 3ece8bd5e76085a4b8ee132ab2f5e9a6,
+    type: 2}
+  element: 3
+  element2: 0
+  emotion: 2
+  elementStrength: 0
+  pointCost: 0
+--- !u!222 &222031235983492362
 CanvasRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1187046794525108}
---- !u!224 &224689681886853104
+  m_GameObject: {fileID: 1765818522787814}
+--- !u!224 &224000963003261398
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1187046794525108}
+  m_GameObject: {fileID: 1765818522787814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}

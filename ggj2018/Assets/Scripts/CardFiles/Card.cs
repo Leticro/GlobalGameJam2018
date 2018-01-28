@@ -12,7 +12,7 @@ public class Card : MonoBehaviour{
 
     public int elementStrength;
     public int pointCost;
-    private GameObject cardText;
+    public GameObject cardText { get; set; }
 
     private Button btn;
 
@@ -45,6 +45,10 @@ public class Card : MonoBehaviour{
         {
             if (ele1.Equals("") && ele2.Equals(""))
             {
+                if(emotion.Equals(""))
+                {
+                    emo = "no";
+                }
                 emo = emotion.ToString();
             }
             else emo = ", " + emotion.ToString();
