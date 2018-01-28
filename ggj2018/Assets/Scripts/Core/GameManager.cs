@@ -37,6 +37,12 @@ public class GameManager : MonoBehaviour
 
         InitScene();
 	}
+
+    void FixedUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            ExitGame();
+    }
 	
     private void InitScene()
     {
