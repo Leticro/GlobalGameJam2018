@@ -291,11 +291,13 @@
     <Compile Include="Assets\Scripts\CardFiles\Deck.cs" />
     <Compile Include="Assets\Scripts\Core\GameManager.cs" />
     <Compile Include="Assets\Scripts\Core\SceneController.cs" />
+    <Compile Include="Assets\Scripts\Core\SceneData.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueController.cs" />
     <Compile Include="Assets\Scripts\Dialogue\ScrollingDialogue.cs" />
     <Compile Include="Assets\Scripts\MainMenuHUD.cs" />
     <Compile Include="Assets\Scripts\RouteChoice.cs" />
     <Compile Include="Assets\Scripts\Tools\IniParser.cs" />
+    <Compile Include="Assets\Scripts\Tools\JSONParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\fontinfo.txt" />
