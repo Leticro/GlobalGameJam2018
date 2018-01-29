@@ -14,7 +14,7 @@
     "*SLAM*" ,
     "..." ,
     "I blame your father in law."],
-    "cutscene":[0],
+    "cutscene":[0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1],
     "outcome_text":["..."],
     "outcome_scene":["main"]
 }
