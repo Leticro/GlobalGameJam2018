@@ -643,7 +643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: 
-  charsPerSec: 12
+  charsPerSec: 26
   maxCharCount: 364
   text: {fileID: 114117314015665776}
 --- !u!114 &114798887003753384
@@ -737,7 +737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: 
-  charsPerSec: 16
+  charsPerSec: 26
   maxCharCount: 232
   text: {fileID: 114372418615423170}
 --- !u!114 &114888370155630098

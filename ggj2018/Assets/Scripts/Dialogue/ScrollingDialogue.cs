@@ -8,7 +8,7 @@ public class ScrollingDialogue : MonoBehaviour
 {
 
     public string dialogue = "";
-    public int charsPerSec = 8;
+    public int charsPerSec = 20;
     public int maxCharCount = 232;
     public Text text;
 

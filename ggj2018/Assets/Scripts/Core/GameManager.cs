@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-            ExitGame();
+            StartGame();
     }
 	
     private void InitScene()

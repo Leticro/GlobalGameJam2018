@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: hi
-  charsPerSec: 16
+  charsPerSec: 30
   maxCharCount: 232
   text: {fileID: 114689783981836110}
 --- !u!114 &114368685265985250
