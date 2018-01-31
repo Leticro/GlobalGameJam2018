@@ -41,18 +41,15 @@ public class Card : MonoBehaviour{
             }
             else ele2 = "/ " + element2.ToString();
         }
-        if (element != CardElement.none)
+        if (ele1.Equals("") && ele2.Equals(""))
         {
-            if (ele1.Equals("") && ele2.Equals(""))
+            if(emotion == CardEmotion.none)
             {
-                if(emotion.Equals(""))
-                {
-                    emo = "no";
-                }
-                else emo = emotion.ToString();
+                emo = "no influence";
             }
-            else emo = ", " + emotion.ToString();
+            else emo = emotion.ToString();
         }
+        else emo = ", " + emotion.ToString();
         cardText.GetComponent<Text>().text = ele1 + ele2  + emo;
     }
 

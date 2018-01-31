@@ -113,7 +113,7 @@ MonoBehaviour:
     type: 2}
   element: 0
   element2: 0
-  emotion: 0
+  emotion: 2
   elementStrength: 0
   pointCost: 0
 --- !u!222 &222216387460601626
