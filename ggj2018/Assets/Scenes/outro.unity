@@ -398,6 +398,11 @@ Prefab:
       propertyPath: maxCharCount
       value: 232
       objectReference: {fileID: 0}
+    - target: {fileID: 114046978362680232, guid: e86046f3b1bfee440b7680f63a866cf4,
+        type: 2}
+      propertyPath: charsPerSec
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e86046f3b1bfee440b7680f63a866cf4, type: 2}
   m_IsPrefabParent: 0
@@ -559,6 +564,10 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403293290327342, guid: 0555abbbb24910b45ba33a8ae94e8312, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0555abbbb24910b45ba33a8ae94e8312, type: 2}
@@ -868,3 +877,4 @@ MonoBehaviour:
   image: {fileID: 1638928813}
   sprites:
   - {fileID: 21300000, guid: 1613809097f858a40ad5b53d53d61385, type: 3}
+  - {fileID: 21300000, guid: 753d75750df61e54ea48c8b26e179171, type: 3}

@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class CardManager : MonoBehaviour {
 
+    public Sprite basicBackground;
+    public GameObject successPrefab;
+    public GameObject failPrefab;
 
     public string routeAV = "sc1_hub2";
     public string routeAN = "sc1_hub2";
@@ -13,6 +16,13 @@ public class CardManager : MonoBehaviour {
     public string routeCN = "sc1_hub2";
     public string routeWV = "sc1_hub2";
     public string routeWN = "sc1_hub2";
+
+    public bool AVSuccess;
+    public bool ANSuccess;
+    public bool CVSuccess;
+    public bool CNSuccess;
+    public bool WVSuccess;
+    public bool WNSuccess;
 
     public int handSize = 8;
     public CardList cardList;
@@ -58,6 +68,48 @@ public class CardManager : MonoBehaviour {
        //drawHand();
     }
 
+    public void displayOutcome()
+    {
+        this.GetComponentInChildren<Canvas>().GetComponent<Image>().sprite = basicBackground;
+
+
+        foreach (Card c in inGameHand)
+        {
+            c.gameObject.SetActive(false);
+        }
+
+        switch (routeChoice)
+        {
+            case RouteChoice.AirViolent:
+                if (AVSuccess) Instantiate(successPrefab, canvas.transform);
+                else 
+                    Instantiate(failPrefab, canvas.transform);
+                break;
+            case RouteChoice.AirNon:
+                if (ANSuccess) Instantiate(successPrefab, canvas.transform);
+                else Instantiate(failPrefab, canvas.transform);
+                break;
+            case RouteChoice.ContactViolent:
+                if (CVSuccess) Instantiate(successPrefab, canvas.transform);
+                else Instantiate(failPrefab, canvas.transform);
+                break;
+            case RouteChoice.ContactNon:
+                if (CNSuccess) Instantiate(successPrefab, canvas.transform);
+                else Instantiate(failPrefab, canvas.transform);
+                break;
+            case RouteChoice.WaterViolent:
+                if (WVSuccess) Instantiate(successPrefab, canvas.transform);
+                else Instantiate(failPrefab, canvas.transform);
+                break;
+            case RouteChoice.WaterNon:
+                if (WNSuccess)Instantiate(successPrefab, canvas.transform);
+                else Instantiate(failPrefab, canvas.transform);
+                break;
+            default: Debug.Log("ERROR: Unable to determine success/failure.");
+                break;
+        }
+    }
+
     public void drawHand()
     {
         hand = new List<Card>();
@@ -100,7 +152,7 @@ public class CardManager : MonoBehaviour {
         CardEmotion resultEmotion = choiceTree.calculateViolence(card);
         CardElement resultElement = choiceTree.calculateElement(card);
      
-        instructions = "You chose a " + card.cardText.GetComponent<Text>().text + " approach. The zombies decided to take a "
+        instructions = "You chose a(n) " + card.cardText.GetComponent<Text>().text + " approach. The zombies decided to take a "
             + resultEmotion.ToString() + ", " + resultElement + " approach!";
 
         GameManager._instance.DisplaySelectionText(instructions);
@@ -126,8 +178,8 @@ public class CardManager : MonoBehaviour {
     {
         switch (routeChoice)
         {
-            case RouteChoice.AirViolent: return routeAN;
-            case RouteChoice.AirNon: return routeAV;
+            case RouteChoice.AirViolent: return routeAV;
+            case RouteChoice.AirNon: return routeAN;
             case RouteChoice.ContactViolent: return routeCV;
             case RouteChoice.ContactNon: return routeCN;
             case RouteChoice.WaterViolent: return routeWV; 

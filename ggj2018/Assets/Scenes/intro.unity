@@ -398,6 +398,11 @@ Prefab:
       propertyPath: maxCharCount
       value: 232
       objectReference: {fileID: 0}
+    - target: {fileID: 114046978362680232, guid: e86046f3b1bfee440b7680f63a866cf4,
+        type: 2}
+      propertyPath: charsPerSec
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e86046f3b1bfee440b7680f63a866cf4, type: 2}
   m_IsPrefabParent: 0

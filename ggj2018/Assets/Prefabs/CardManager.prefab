@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: 
-  charsPerSec: 12
+  charsPerSec: 30
   maxCharCount: 364
   text: {fileID: 114888370155630098}
 --- !u!114 &114019366837501710
@@ -339,12 +339,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8674030a371b944bbde4af1f932bc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  routeAV: sc1_hub_2
+  basicBackground: {fileID: 21300000, guid: 3f1d7df05f79b714fbc92dac7776233d, type: 3}
+  successPrefab: {fileID: 1033365008034304, guid: 410a825860e60e9449b8b67bb1c1cd68,
+    type: 2}
+  failPrefab: {fileID: 1722646190118956, guid: de0740daa8af6e0499c0e99b20c64044, type: 2}
+  routeAV: sc1_hub2
   routeAN: sc1_hub_1
   routeCV: sc1_hub_1
-  routeCN: sc1_hub_3
+  routeCN: sc1_hub3
   routeWV: sc1_hub_1
   routeWN: sc1_hub_1
+  AVSuccess: 0
+  ANSuccess: 0
+  CVSuccess: 0
+  CNSuccess: 0
+  WVSuccess: 0
+  WNSuccess: 0
   handSize: 8
   cardList: {fileID: 114273041799594236, guid: 93170e9730d4f5e4ea0fa9115b4a269d, type: 2}
   deckPrefab: {fileID: 114168898235361560, guid: fdd4e4135ae47ba419e73af94d10055f,
@@ -643,7 +653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: 
-  charsPerSec: 26
+  charsPerSec: 30
   maxCharCount: 364
   text: {fileID: 114117314015665776}
 --- !u!114 &114798887003753384
@@ -737,7 +747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: 
-  charsPerSec: 26
+  charsPerSec: 30
   maxCharCount: 232
   text: {fileID: 114372418615423170}
 --- !u!114 &114888370155630098

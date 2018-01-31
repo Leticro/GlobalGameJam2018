@@ -49,7 +49,7 @@ public class Card : MonoBehaviour{
                 {
                     emo = "no";
                 }
-                emo = emotion.ToString();
+                else emo = emotion.ToString();
             }
             else emo = ", " + emotion.ToString();
         }

@@ -372,6 +372,16 @@ Prefab:
       propertyPath: routeCN
       value: sc1_hub3
       objectReference: {fileID: 0}
+    - target: {fileID: 114102613827681180, guid: 24761225eaf00c9488e26096c9a7de44,
+        type: 2}
+      propertyPath: AVSuccess
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114102613827681180, guid: 24761225eaf00c9488e26096c9a7de44,
+        type: 2}
+      propertyPath: CNSuccess
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24761225eaf00c9488e26096c9a7de44, type: 2}
   m_IsPrefabParent: 0

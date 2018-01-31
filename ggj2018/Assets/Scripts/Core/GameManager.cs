@@ -40,6 +40,16 @@ public class GameManager : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+        {
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                SceneManager.LoadScene("outro");
+            }
+        }
+        {
+
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
             StartGame();
     }
@@ -89,7 +99,7 @@ public class GameManager : MonoBehaviour
 	{
         if(cardManager)
         {
-            Debug.Log("Starting Turn");
+            //Debug.Log("Starting Turn");
             StartTurn();
         }
         else if(sceneController.sectionName=="intro")
@@ -116,7 +126,7 @@ public class GameManager : MonoBehaviour
     public void DisplaySelectionText(string selectText)
     {
         selectionButton.gameObject.SetActive(true);
-        Debug.Log(selectText + "should be displayed");
+        //Debug.Log(selectText + "should be displayed");
         selectionButton.InitDialogue(selectText);
         selectionButton.gameObject.SetActive(true);
     }
@@ -125,7 +135,9 @@ public class GameManager : MonoBehaviour
     {
         string outcomeText = sceneData.GetOutcomeText(cardManager.GetRouteChoiceId());
         selectionButton.gameObject.SetActive(false);
-        Debug.Log(outcomeText + "should be displayed");
+        //Debug.Log(outcomeText + "should be displayed");
+
+        cardManager.displayOutcome();
 
         outcomeButton.InitDialogue(outcomeText);
         outcomeButton.gameObject.SetActive(true);
@@ -141,7 +153,7 @@ public class GameManager : MonoBehaviour
 
 	public void ExecOutcome()
 	{
-        Debug.Log("trying to load");
+        //Debug.Log("trying to load");
         cardManager.loadNextScene();
         SceneManager.LoadScene(cardManager.getSceneName());
 	}
