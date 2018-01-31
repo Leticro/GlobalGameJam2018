@@ -10,6 +10,8 @@ determined to take over the kingdom of zombies who suffers from a lack of Direct
 vectors and emotions to indicate to the zombies how you want them to go about performing your bidding. The game is visual novel
 styled to emphasize the strengths in storytelling and artwork.
 
+Controls: Click dialogue boxes and cards to continue through storyline. ESC key will return to main menu. Ctrl+E to skip to ending (used for demos, otherwise this is cheating).
+
 This is my second year attending a Global Game Jam and planned to venture out into a new group as an independent programmer
 for first time. I ended up paring with Shane McDermott for programming, a previous classmate in my game development classes at
 University of Nebraska at Omaha. Mark Maiefski was the lead game designer/story writer. Kayla Swain is the lead artist that drew
